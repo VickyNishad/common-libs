@@ -1,0 +1,31 @@
+name: Publish Maven Package
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'  # Optional: only publish when you push a version tag like v1.0.0
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '24'  # Or 11/21 as needed
+
+      - name: Publish to GitHub Packages
+        run: mvn deploy -DskipTests
+        env:
+          GITHUB_TOKEN: ${{ secrets.JAVA_ACCESS_TOKEN }}
