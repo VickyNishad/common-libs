@@ -3,7 +3,7 @@ name: Publish Maven Package
 on:
   push:
     branches:
-      - main
+      - master
     tags:
       - 'v*'  # Optional: only publish when you push a version tag like v1.0.0
 
