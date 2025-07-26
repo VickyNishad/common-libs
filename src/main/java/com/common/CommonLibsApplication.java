@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class CommonLibsApplication {
+	public String getString() {
+		return "";
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(CommonLibsApplication.class, args);
