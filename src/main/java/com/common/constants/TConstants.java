@@ -11,7 +11,6 @@ public class TConstants {
         public static final String SUCCESS = "success";
     }
 
-
 	public static final class Keys {
 		public static final String SUCCESS = "success";
 		public static final String ERROR = "error";
