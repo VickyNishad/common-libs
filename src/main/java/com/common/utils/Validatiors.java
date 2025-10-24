@@ -8,14 +8,14 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
-import com.common.constants.TConstants;
+import com.common.constants.Constants;
 import com.common.exceptions.InvalidInputException;
 
 
 /**
  * 
  */
-public class TValidatiors {
+public class Validatiors {
 
 	public static <T> boolean isNullOrEmpty(T value) {
 		if (value == null) {
@@ -170,7 +170,7 @@ public class TValidatiors {
 	 * @return
 	 */
 	public static boolean isValidEmail(String email) {
-		return Pattern.matches(TConstants.RegexPattern.EMAIL_PATTERN, email);
+		return Pattern.matches(Constants.RegexPattern.EMAIL_PATTERN, email);
 	}
 
 	/**
@@ -179,7 +179,7 @@ public class TValidatiors {
 	 * @return
 	 */
 	public static boolean isValidMobile(String mobile) {
-		return Pattern.matches(TConstants.RegexPattern.MOBILE_PATTERN, mobile);
+		return Pattern.matches(Constants.RegexPattern.MOBILE_PATTERN, mobile);
 	}
 
 	public static String validateRequestedField(String fieldName, String fieldValue, boolean nullCheck,
@@ -189,7 +189,7 @@ public class TValidatiors {
 		try {
 			// Null check
 			if (nullCheck && isNullOrEmpty(fieldValue)) {
-				throw new RuntimeException(fieldName + TConstants.Error.CANNOT_BE_NULL_OR_EMPTY);
+				throw new RuntimeException(fieldName + Constants.Error.CANNOT_BE_NULL_OR_EMPTY);
 //				return fieldName + CommonConstants.ValidateErrorMessage.CANNOT_BE_NULL_OR_EMPTY;
 			}
 			// Check if the field is not null or empty
@@ -201,17 +201,17 @@ public class TValidatiors {
 				// Alphanumeric checks with special character exclusion
 				if (alphaNumericCheck) {
 					if (excludeCharacter != null && !isValidAlphaNumeric(fieldValue, spaceCheck, excludeCharacter)) {
-						String excludedChars = excludeCharacter.contains(TConstants.WhiteSpaceCharacter.WHITE_SPACE)
-								? TConstants.Error.SPACE_AND + excludeCharacter.replace(TConstants.WhiteSpaceCharacter.WHITE_SPACE, "")
+						String excludedChars = excludeCharacter.contains(Constants.WhiteSpaceCharacter.WHITE_SPACE)
+								? Constants.Error.SPACE_AND + excludeCharacter.replace(Constants.WhiteSpaceCharacter.WHITE_SPACE, "")
 								: excludeCharacter;
 //						return fieldName + CommonConstants.ValidateErrorMessage.SHOULD_BE_ALFA_NUMERIC_OR_CHARACTERS + excludedChars
 //								+ CommonConstants.ValidateErrorMessage.ARE_NOT_ALLOWED;
-						throw new RuntimeException(fieldName + TConstants.Error.SHOULD_BE_ALFA_NUMERIC_OR_CHARACTERS + excludedChars+ TConstants.Error.ARE_NOT_ALLOWED);
+						throw new RuntimeException(fieldName + Constants.Error.SHOULD_BE_ALFA_NUMERIC_OR_CHARACTERS + excludedChars+ Constants.Error.ARE_NOT_ALLOWED);
 
 					}
 					if (excludeCharacter == null && !isValidAlphaNumeric(fieldValue, spaceCheck)) {
 //						return fieldName + CommonConstants.ValidateErrorMessage.CANNOT_CONTAIN_SPECIAL_CHARACTERS;
-						throw new RuntimeException(fieldName + TConstants.Error.CANNOT_CONTAIN_SPECIAL_CHARACTERS);
+						throw new RuntimeException(fieldName + Constants.Error.CANNOT_CONTAIN_SPECIAL_CHARACTERS);
 
 					}
 				}
@@ -219,7 +219,7 @@ public class TValidatiors {
 				// Numeric check
 				if (numericCheck && !isValidNumericInput(fieldValue)) {
 //					return fieldName + CommonConstants.ValidateErrorMessage.SHOULD_BE_NUMERIC_VALUE;
-					throw new RuntimeException(fieldName + TConstants.Error.SHOULD_BE_NUMERIC_VALUE);
+					throw new RuntimeException(fieldName + Constants.Error.SHOULD_BE_NUMERIC_VALUE);
 
 				}
 
@@ -227,11 +227,11 @@ public class TValidatiors {
 				if (lengthCheck && !isValidLength(fieldValue.trim(), min, max)) {
 					if (min == max) {
 //						return fieldName + CommonConstants.ValidateErrorMessage.SHOULD_BE_EXACTLY + min + CommonConstants.ValidateErrorMessage.CHARACTERS_LONG;
-						throw new RuntimeException(fieldName + TConstants.Error.SHOULD_BE_EXACTLY + min + TConstants.Error.CHARACTERS_LONG);
+						throw new RuntimeException(fieldName + Constants.Error.SHOULD_BE_EXACTLY + min + Constants.Error.CHARACTERS_LONG);
 
 					} else {
 //						return fieldName + CommonConstants.ValidateErrorMessage.SHOULD_BE_BETWEEN + min + CommonConstants.ValidateErrorMessage.TO + max + CommonConstants.ValidateErrorMessage.CHARACTERS_LONG;
-						throw new RuntimeException(fieldName + TConstants.Error.SHOULD_BE_BETWEEN + min + TConstants.Error.TO + max + TConstants.Error.CHARACTERS_LONG);
+						throw new RuntimeException(fieldName + Constants.Error.SHOULD_BE_BETWEEN + min + Constants.Error.TO + max + Constants.Error.CHARACTERS_LONG);
 
 					}
 				}

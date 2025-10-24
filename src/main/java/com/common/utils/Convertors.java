@@ -3,11 +3,12 @@
  */
 package com.common.utils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.Map;
 
-public class TConvertors {
+import tools.jackson.databind.ObjectMapper;
+
+public class Convertors {
 
     private static ObjectMapper objectMapper = new ObjectMapper(); // Use static objectMapper for performance reasons
 

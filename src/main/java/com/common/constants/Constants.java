@@ -3,7 +3,7 @@ package com.common.constants;
 /**
  * Contains application-wide constants that are used across the project.
  */
-public class TConstants {
+public class Constants {
 
     // Success constants related to data insertion
     public static final class Success {

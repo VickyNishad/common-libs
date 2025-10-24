@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 /**
  * 
  */
-public class TMappers {
+public class Mappers {
 	
 	@SuppressWarnings("unchecked")
 	public static Map<String, List<?>> mapResultSetToPojo( Map<String, Object> rawResults, Map<String, Class<?>> resultSetMappings) {
@@ -28,7 +28,7 @@ public class TMappers {
 
             if (rawRows != null) {
                 List<?> pojoList = rawRows.stream()
-                        .map(row -> TConvertors.convertObjectToPojo(row, pojoClass))
+                        .map(row -> Convertors.convertObjectToPojo(row, pojoClass))
                         .collect(Collectors.toList());
 
                 mappedResults.put(rsName, pojoList);
@@ -47,7 +47,7 @@ public class TMappers {
             return Collections.emptyList();
         }
         return rawRows.stream()
-                .map(row -> TConvertors.convertObjectToPojo(row, pojoClass))
+                .map(row -> Convertors.convertObjectToPojo(row, pojoClass))
                 .collect(Collectors.toList());
     }
 	

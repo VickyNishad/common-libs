@@ -19,7 +19,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.common.constants.TConstants;
+import com.common.constants.Constants;
 import com.common.models.GenericModel;
 
 
@@ -27,7 +27,7 @@ import com.common.models.GenericModel;
  * 
  */
 @Component
-public class TUtils {
+public class CommonUtils {
 	
 	private static final String _ALGORITHM = "AES";
     private static final String _DOT = ".";
@@ -44,8 +44,8 @@ public class TUtils {
 		try {
 			switch (option) {
 	
-			case TConstants.ParamProcess.INSERT_DOCUMENT ,TConstants.ParamProcess.UPDATE_DOCUMENT , TConstants.ParamProcess.GET_DOCUMENT :
-				procedureName = TConstants.ProcedureName.SP_DOCUMENTFILE;
+			case Constants.ParamProcess.INSERT_DOCUMENT ,Constants.ParamProcess.UPDATE_DOCUMENT , Constants.ParamProcess.GET_DOCUMENT :
+				procedureName = Constants.ProcedureName.SP_DOCUMENTFILE;
 				break;
 						
 			default:
@@ -75,7 +75,7 @@ public class TUtils {
 	 */
 	public static Object getSuccess(Object obejct) {
 		Map<String, Object> successMap = new HashMap<String, Object>();
-		successMap.put(TConstants.Keys.SUCCESS, obejct);
+		successMap.put(Constants.Keys.SUCCESS, obejct);
 		return successMap;
 	}
 	
@@ -86,7 +86,7 @@ public class TUtils {
 	 */
 	public static Object getError(Object obejct) {
 		Map<String, Object> errorMap = new HashMap<String, Object>();
-		errorMap.put(TConstants.Keys.ERROR, obejct);
+		errorMap.put(Constants.Keys.ERROR, obejct);
 		return errorMap;
 	}
 	
@@ -190,7 +190,7 @@ public class TUtils {
         try {
             // Combine device id and mobileNumber and emailId and deviceType a unique UUID with timestamp
             Object object = genericModel.getRequest();
-            String token_data = TConvertors.convertObjectToString(object);
+            String token_data = Convertors.convertObjectToString(object);
             // Encode token using Base64 encoding
             String accessToken = encrypt(token_data, secretKey);
             if (accessToken.length()>495){
@@ -203,7 +203,7 @@ public class TUtils {
     }
     
     public static String getAuthorizationToken(String authorization){
-    	if(TValidatiors.isNullOrEmpty(authorization)) {
+    	if(Validatiors.isNullOrEmpty(authorization)) {
     		return "";
     	}
         String stringPrefix = authorization.substring(0,7);
@@ -216,7 +216,7 @@ public class TUtils {
     	String originalFilename = file.getOriginalFilename();
     	String ext = getFileExtension(file);
     	
-    	if(TValidatiors.isNullOrEmpty(fileName)) {
+    	if(Validatiors.isNullOrEmpty(fileName)) {
     		newFileName = timestamp + "_" + originalFilename;
     	}else {
     		newFileName = timestamp + "_" + fileName+"."+ext;

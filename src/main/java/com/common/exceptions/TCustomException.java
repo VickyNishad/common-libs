@@ -20,9 +20,9 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.context.request.async.AsyncRequestTimeoutException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.common.constants.TConstants;
+import com.common.constants.Constants;
 import com.common.models.ResponseModel;
-import com.common.utils.TUtils;
+import com.common.utils.CommonUtils;
 
 
 
@@ -39,8 +39,8 @@ public class TCustomException extends ResponseEntityExceptionHandler {
 		// TODO Auto-generated method stub
 		ResponseModel responseModel = new ResponseModel();
 
-		responseModel.setStatus(TConstants.Error.FAILURE);
-		responseModel.setData(TUtils.getError(ex.getMessage()));
+		responseModel.setStatus(Constants.Error.FAILURE);
+		responseModel.setData(CommonUtils.getError(ex.getMessage()));
 
 		return new ResponseEntity<>(responseModel, status);
 	}
@@ -51,8 +51,8 @@ public class TCustomException extends ResponseEntityExceptionHandler {
 		// TODO Auto-generated method stub
 		ResponseModel responseModel = new ResponseModel();
 
-		responseModel.setStatus(TConstants.Error.FAILURE);
-		responseModel.setData(TUtils.getError(ex.getMessage()));
+		responseModel.setStatus(Constants.Error.FAILURE);
+		responseModel.setData(CommonUtils.getError(ex.getMessage()));
 
 		return new ResponseEntity<>(responseModel, status);
 	}
@@ -63,8 +63,8 @@ public class TCustomException extends ResponseEntityExceptionHandler {
 		// TODO Auto-generated method stub
 		ResponseModel responseModel = new ResponseModel();
 
-		responseModel.setStatus(TConstants.Error.FAILURE);
-		responseModel.setData(TUtils.getError(ex.getMessage()));
+		responseModel.setStatus(Constants.Error.FAILURE);
+		responseModel.setData(CommonUtils.getError(ex.getMessage()));
 
 		return new ResponseEntity<>(responseModel, status);
 	}
@@ -75,8 +75,8 @@ public class TCustomException extends ResponseEntityExceptionHandler {
 		// TODO Auto-generated method stub
 		ResponseModel responseModel = new ResponseModel();
 
-		responseModel.setStatus(TConstants.Error.FAILURE);
-		responseModel.setData(TUtils.getError(ex.getMessage()));
+		responseModel.setStatus(Constants.Error.FAILURE);
+		responseModel.setData(CommonUtils.getError(ex.getMessage()));
 
 		return new ResponseEntity<>(responseModel, status);
 	}
@@ -87,8 +87,8 @@ public class TCustomException extends ResponseEntityExceptionHandler {
 		// TODO Auto-generated method stub
 		ResponseModel responseModel = new ResponseModel();
 
-		responseModel.setStatus(TConstants.Error.FAILURE);
-		responseModel.setData(TUtils.getError(ex.getMessage()));
+		responseModel.setStatus(Constants.Error.FAILURE);
+		responseModel.setData(CommonUtils.getError(ex.getMessage()));
 
 		return new ResponseEntity<>(responseModel, status);
 	}
@@ -99,8 +99,8 @@ public class TCustomException extends ResponseEntityExceptionHandler {
 		// TODO Auto-generated method stub
 		ResponseModel responseModel = new ResponseModel();
 
-		responseModel.setStatus(TConstants.Error.FAILURE);
-		responseModel.setData(TUtils.getError(ex.getMessage()));
+		responseModel.setStatus(Constants.Error.FAILURE);
+		responseModel.setData(CommonUtils.getError(ex.getMessage()));
 
 		return new ResponseEntity<>(responseModel, status);
 	}
@@ -111,8 +111,8 @@ public class TCustomException extends ResponseEntityExceptionHandler {
 		// TODO Auto-generated method stub
 		ResponseModel responseModel = new ResponseModel();
 
-		responseModel.setStatus(TConstants.Error.FAILURE);
-		responseModel.setData(TUtils.getError(ex.getMessage()));
+		responseModel.setStatus(Constants.Error.FAILURE);
+		responseModel.setData(CommonUtils.getError(ex.getMessage()));
 
 		return new ResponseEntity<>(responseModel, status);
 	}
@@ -123,8 +123,8 @@ public class TCustomException extends ResponseEntityExceptionHandler {
 		// TODO Auto-generated method stub
 		ResponseModel responseModel = new ResponseModel();
 
-		responseModel.setStatus(TConstants.Error.FAILURE);
-		responseModel.setData(TUtils.getError(ex.getMessage()));
+		responseModel.setStatus(Constants.Error.FAILURE);
+		responseModel.setData(CommonUtils.getError(ex.getMessage()));
 
 		return new ResponseEntity<>(responseModel, status);
 	}
@@ -134,8 +134,8 @@ public class TCustomException extends ResponseEntityExceptionHandler {
 
 		ResponseModel responseModel = new ResponseModel();
 
-		responseModel.setStatus(TConstants.Error.FAILURE);
-		responseModel.setData(TUtils.getError(ex.getMessage()));
+		responseModel.setStatus(Constants.Error.FAILURE);
+		responseModel.setData(CommonUtils.getError(ex.getMessage()));
 
 		return new ResponseEntity<ResponseModel>(responseModel, HttpStatus.BAD_REQUEST);
 	}
@@ -145,8 +145,8 @@ public class TCustomException extends ResponseEntityExceptionHandler {
 
 		ResponseModel responseModel = new ResponseModel();
 
-		responseModel.setStatus(TConstants.Error.FAILURE);
-		responseModel.setData(TUtils.getError(ex.getMessage()));
+		responseModel.setStatus(Constants.Error.FAILURE);
+		responseModel.setData(CommonUtils.getError(ex.getMessage()));
 
 		return new ResponseEntity<ResponseModel>(responseModel, HttpStatus.BAD_REQUEST);
 	}
@@ -156,8 +156,8 @@ public class TCustomException extends ResponseEntityExceptionHandler {
 
 		ResponseModel responseModel = new ResponseModel();
 
-		responseModel.setStatus(TConstants.Error.FAILURE);
-		responseModel.setData(TUtils.getError(ex.getMessage()));
+		responseModel.setStatus(Constants.Error.FAILURE);
+		responseModel.setData(CommonUtils.getError(ex.getMessage()));
 
 		return new ResponseEntity<ResponseModel>(responseModel, HttpStatus.NOT_FOUND);
 	}
@@ -167,8 +167,8 @@ public class TCustomException extends ResponseEntityExceptionHandler {
 
 		ResponseModel responseModel = new ResponseModel();
 
-		responseModel.setStatus(TConstants.Error.FAILURE);
-		responseModel.setData(TUtils.getError(ex.getMessage()));
+		responseModel.setStatus(Constants.Error.FAILURE);
+		responseModel.setData(CommonUtils.getError(ex.getMessage()));
 
 		return new ResponseEntity<ResponseModel>(responseModel, HttpStatus.BAD_REQUEST);
 	}
@@ -179,8 +179,8 @@ public class TCustomException extends ResponseEntityExceptionHandler {
 
 		ResponseModel responseModel = new ResponseModel();
 
-		responseModel.setStatus(TConstants.Error.FAILURE);
-		responseModel.setData(TUtils.getError(ex.getMessage()));
+		responseModel.setStatus(Constants.Error.FAILURE);
+		responseModel.setData(CommonUtils.getError(ex.getMessage()));
 
 		return new ResponseEntity<ResponseModel>(responseModel, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
