@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.common.utils;
+package com.common.utility;
 
 import java.util.Collection;
 import java.util.Map;

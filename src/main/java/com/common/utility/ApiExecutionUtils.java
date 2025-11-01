@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.common.utils;
+package com.common.utility;
 /**
  * =================================================================================================
  *  ApiExecutionUtils

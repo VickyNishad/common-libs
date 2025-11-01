@@ -1,4 +1,4 @@
-package com.common.utils;
+package com.common.utility;
 
 import java.io.IOException;
 import java.net.URI;

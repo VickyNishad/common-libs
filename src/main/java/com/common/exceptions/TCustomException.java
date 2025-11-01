@@ -22,7 +22,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import com.common.constants.Constants;
 import com.common.models.ResponseModel;
-import com.common.utils.CommonUtils;
+import com.common.utility.CommonUtils;
 
 
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.common.utils;
+package com.common.utility;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -39,56 +39,6 @@ public class CommonUtils {
 		System.out.println("Successfully remove "+key+" from map");
 	}
 
-	public static String getProcedureName(String option) {
-		String procedureName = "";
-		try {
-			switch (option) {
-	
-			case Constants.ParamProcess.INSERT_DOCUMENT ,Constants.ParamProcess.UPDATE_DOCUMENT , Constants.ParamProcess.GET_DOCUMENT :
-				procedureName = Constants.ProcedureName.SP_DOCUMENTFILE;
-				break;
-						
-			default:
-				break;
-			}
-			if (procedureName.isEmpty()) {
-				throw new Exception("Unknown proedure Name : " + option);
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		return procedureName;
-	}
-	
-	public static GenericModel<Object> getObjctFromRequest(String token,Object object) {
-		GenericModel<Object> genericModel = new GenericModel<Object>();
-		genericModel.setRequest(object);
-		genericModel.setToken(getAuthorizationToken(token));
-		return genericModel;
-	}
-	
-
-	/**
-	 * 
-	 * @param obejct
-	 * @return
-	 */
-	public static Object getSuccess(Object obejct) {
-		Map<String, Object> successMap = new HashMap<String, Object>();
-		successMap.put(Constants.Keys.SUCCESS, obejct);
-		return successMap;
-	}
-	
-	/**
-	 * 
-	 * @param obejct
-	 * @return
-	 */
-	public static Object getError(Object obejct) {
-		Map<String, Object> errorMap = new HashMap<String, Object>();
-		errorMap.put(Constants.Keys.ERROR, obejct);
-		return errorMap;
-	}
 	
 	public static int getIntValue(Object value) {
         if (value == null) {
