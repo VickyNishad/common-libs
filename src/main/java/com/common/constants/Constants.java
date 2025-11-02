@@ -17,7 +17,6 @@ public class Constants {
 
 		// Mobile Regex Pattern (Indian 10-digit format, starting with 6-9)
 		public static final String MOBILE_PATTERN = "^[6-9]\\d{9}$";
-
 	}
 
 	public static final class WhiteSpaceCharacter {
