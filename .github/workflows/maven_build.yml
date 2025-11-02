@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '24'  # Or 11/21 as needed
+          java-version: '25'  # Or 11/21 as needed
 
       - name: Publish to GitHub Packages
         run: mvn deploy -DskipTests
