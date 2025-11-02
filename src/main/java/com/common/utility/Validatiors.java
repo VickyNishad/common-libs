@@ -182,69 +182,69 @@ public class Validatiors {
 		return Pattern.matches(Constants.RegexPattern.MOBILE_PATTERN, mobile);
 	}
 
-	public static String validateRequestedField(String fieldName, String fieldValue, boolean nullCheck,
-			boolean numericCheck, boolean alphaNumericCheck, boolean lengthCheck, String excludeCharacter, int min,
-			int max, boolean spaceCheck) {
-
-		try {
-			// Null check
-			if (nullCheck && isNullOrEmpty(fieldValue)) {
-				throw new RuntimeException(fieldName + Constants.Error.CANNOT_BE_NULL_OR_EMPTY);
-//				return fieldName + CommonConstants.ValidateErrorMessage.CANNOT_BE_NULL_OR_EMPTY;
-			}
-			// Check if the field is not null or empty
-			boolean isFieldNotEmpty = !isNullOrEmpty(fieldValue);
-
-			// Proceed with further checks only if the field is not empty
-			if (isFieldNotEmpty) {
-
-				// Alphanumeric checks with special character exclusion
-				if (alphaNumericCheck) {
-					if (excludeCharacter != null && !isValidAlphaNumeric(fieldValue, spaceCheck, excludeCharacter)) {
-						String excludedChars = excludeCharacter.contains(Constants.WhiteSpaceCharacter.WHITE_SPACE)
-								? Constants.Error.SPACE_AND + excludeCharacter.replace(Constants.WhiteSpaceCharacter.WHITE_SPACE, "")
-								: excludeCharacter;
-//						return fieldName + CommonConstants.ValidateErrorMessage.SHOULD_BE_ALFA_NUMERIC_OR_CHARACTERS + excludedChars
-//								+ CommonConstants.ValidateErrorMessage.ARE_NOT_ALLOWED;
-						throw new RuntimeException(fieldName + Constants.Error.SHOULD_BE_ALFA_NUMERIC_OR_CHARACTERS + excludedChars+ Constants.Error.ARE_NOT_ALLOWED);
-
-					}
-					if (excludeCharacter == null && !isValidAlphaNumeric(fieldValue, spaceCheck)) {
-//						return fieldName + CommonConstants.ValidateErrorMessage.CANNOT_CONTAIN_SPECIAL_CHARACTERS;
-						throw new RuntimeException(fieldName + Constants.Error.CANNOT_CONTAIN_SPECIAL_CHARACTERS);
-
-					}
-				}
-
-				// Numeric check
-				if (numericCheck && !isValidNumericInput(fieldValue)) {
-//					return fieldName + CommonConstants.ValidateErrorMessage.SHOULD_BE_NUMERIC_VALUE;
-					throw new RuntimeException(fieldName + Constants.Error.SHOULD_BE_NUMERIC_VALUE);
-
-				}
-
-				// Length check
-				if (lengthCheck && !isValidLength(fieldValue.trim(), min, max)) {
-					if (min == max) {
-//						return fieldName + CommonConstants.ValidateErrorMessage.SHOULD_BE_EXACTLY + min + CommonConstants.ValidateErrorMessage.CHARACTERS_LONG;
-						throw new RuntimeException(fieldName + Constants.Error.SHOULD_BE_EXACTLY + min + Constants.Error.CHARACTERS_LONG);
-
-					} else {
-//						return fieldName + CommonConstants.ValidateErrorMessage.SHOULD_BE_BETWEEN + min + CommonConstants.ValidateErrorMessage.TO + max + CommonConstants.ValidateErrorMessage.CHARACTERS_LONG;
-						throw new RuntimeException(fieldName + Constants.Error.SHOULD_BE_BETWEEN + min + Constants.Error.TO + max + Constants.Error.CHARACTERS_LONG);
-
-					}
-				}
-			}
-			// If all checks pass, return null indicating no validation errors
-			return null;
-		} catch (RuntimeException e) {
-			// TODO: handle exception
-			throw new InvalidInputException(e.getMessage());
-		} catch (Exception e) {
-			// TODO: handle exception
-			throw new InvalidInputException(e.getMessage());
-
-		}
-	}
+//	public static String validateRequestedField(String fieldName, String fieldValue, boolean nullCheck,
+//			boolean numericCheck, boolean alphaNumericCheck, boolean lengthCheck, String excludeCharacter, int min,
+//			int max, boolean spaceCheck) {
+//
+//		try {
+//			// Null check
+//			if (nullCheck && isNullOrEmpty(fieldValue)) {
+//				throw new RuntimeException(fieldName + Constants.Error.CANNOT_BE_NULL_OR_EMPTY);
+////				return fieldName + CommonConstants.ValidateErrorMessage.CANNOT_BE_NULL_OR_EMPTY;
+//			}
+//			// Check if the field is not null or empty
+//			boolean isFieldNotEmpty = !isNullOrEmpty(fieldValue);
+//
+//			// Proceed with further checks only if the field is not empty
+//			if (isFieldNotEmpty) {
+//
+//				// Alphanumeric checks with special character exclusion
+//				if (alphaNumericCheck) {
+//					if (excludeCharacter != null && !isValidAlphaNumeric(fieldValue, spaceCheck, excludeCharacter)) {
+//						String excludedChars = excludeCharacter.contains(Constants.WhiteSpaceCharacter.WHITE_SPACE)
+//								? Constants.Error.SPACE_AND + excludeCharacter.replace(Constants.WhiteSpaceCharacter.WHITE_SPACE, "")
+//								: excludeCharacter;
+////						return fieldName + CommonConstants.ValidateErrorMessage.SHOULD_BE_ALFA_NUMERIC_OR_CHARACTERS + excludedChars
+////								+ CommonConstants.ValidateErrorMessage.ARE_NOT_ALLOWED;
+//						throw new RuntimeException(fieldName + Constants.Error.SHOULD_BE_ALFA_NUMERIC_OR_CHARACTERS + excludedChars+ Constants.Error.ARE_NOT_ALLOWED);
+//
+//					}
+//					if (excludeCharacter == null && !isValidAlphaNumeric(fieldValue, spaceCheck)) {
+////						return fieldName + CommonConstants.ValidateErrorMessage.CANNOT_CONTAIN_SPECIAL_CHARACTERS;
+//						throw new RuntimeException(fieldName + Constants.Error.CANNOT_CONTAIN_SPECIAL_CHARACTERS);
+//
+//					}
+//				}
+//
+//				// Numeric check
+//				if (numericCheck && !isValidNumericInput(fieldValue)) {
+////					return fieldName + CommonConstants.ValidateErrorMessage.SHOULD_BE_NUMERIC_VALUE;
+//					throw new RuntimeException(fieldName + Constants.Error.SHOULD_BE_NUMERIC_VALUE);
+//
+//				}
+//
+//				// Length check
+//				if (lengthCheck && !isValidLength(fieldValue.trim(), min, max)) {
+//					if (min == max) {
+////						return fieldName + CommonConstants.ValidateErrorMessage.SHOULD_BE_EXACTLY + min + CommonConstants.ValidateErrorMessage.CHARACTERS_LONG;
+//						throw new RuntimeException(fieldName + Constants.Error.SHOULD_BE_EXACTLY + min + Constants.Error.CHARACTERS_LONG);
+//
+//					} else {
+////						return fieldName + CommonConstants.ValidateErrorMessage.SHOULD_BE_BETWEEN + min + CommonConstants.ValidateErrorMessage.TO + max + CommonConstants.ValidateErrorMessage.CHARACTERS_LONG;
+//						throw new RuntimeException(fieldName + Constants.Error.SHOULD_BE_BETWEEN + min + Constants.Error.TO + max + Constants.Error.CHARACTERS_LONG);
+//
+//					}
+//				}
+//			}
+//			// If all checks pass, return null indicating no validation errors
+//			return null;
+//		} catch (RuntimeException e) {
+//			// TODO: handle exception
+//			throw new InvalidInputException(e.getMessage());
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			throw new InvalidInputException(e.getMessage());
+//
+//		}
+//	}
 }
