@@ -35,5 +35,4 @@ public class GenericModel<T> {
 	public String toString() {
 		return "GenericModel [token=" + token + ", request=" + request + "]";
 	}
-
 }

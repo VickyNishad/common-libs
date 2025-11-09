@@ -123,7 +123,7 @@ public class ApiExecutionUtils {
 						: ApiResponse.success(data);
 			} catch (Exception e) {
 				
-				logger.error("API processRequest failed after {} ms: {}", System.currentTimeMillis() - startTime, e.getMessage(), e);
+				logger.error("API processRequest failed after {} ms: {}", System.currentTimeMillis() - startTime, e.getMessage());
 				return ApiResponse.error("API processing failed: " + e.getMessage());
 			}
 		}
