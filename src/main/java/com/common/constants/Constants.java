@@ -5,12 +5,6 @@ package com.common.constants;
  */
 public class Constants {
 
-	// Success constants related to data insertion
-	public static final class Success {
-		public static final String DATA_INSERTED_SUCCESSFULLY = "data inserted successfully.";
-		public static final String SUCCESS = "success";
-	}
-
 	public static final class RegexPattern {
 		// Email Regex Pattern (basic, suitable for most cases)
 		public static final String EMAIL_PATTERN = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
@@ -31,4 +25,21 @@ public class Constants {
 		public static final String CARRIAGE_RETURN = "\r"; // Carriage return
 
 	}
+	
+	
+	 public static final class Error {
+	    	
+	    	public static final String TO = " to ";
+	    	public static final String SPACE_AND = "Space and ";  	
+	    	public static final String CHARACTERS_LONG = " characters long.";
+	    	public static final String ARE_NOT_ALLOWED = " are not allowed";
+	    	public static final String SHOULD_BE_EXACTLY = " should be exactly ";
+	    	public static final String SHOULD_BE_BETWEEN = " should be between ";
+	    	public static final String CANNOT_BE_NULL_OR_EMPTY = " cannot be null or empty";
+	    	public static final String SHOULD_BE_NUMERIC_VALUE = " should be a valid numeric value.";
+//	    	public static final String CANNOT_CONTAIN_SPECIAL_CHARACTERS = " cannot contain special characters.";
+	    	public static final String SHOULD_BE_ALFA_NUMERIC_OR_CHARACTERS = " should be alphanumeric. Characters other than ";
+
+
+	    }
 }

@@ -187,7 +187,7 @@ public class CommonUtils {
     }
     
     public static String getAuthorizationToken(String authorization){
-    	if(Validatiors.isNullOrEmpty(authorization)) {
+    	if(Validators.isNullOrEmpty(authorization)) {
     		return "";
     	}
         String stringPrefix = authorization.substring(0,7);
@@ -200,7 +200,7 @@ public class CommonUtils {
     	String originalFilename = file.getOriginalFilename();
     	String ext = getFileExtension(file);
     	
-    	if(Validatiors.isNullOrEmpty(fileName)) {
+    	if(Validators.isNullOrEmpty(fileName)) {
     		newFileName = timestamp + "_" + originalFilename;
     	}else {
     		newFileName = timestamp + "_" + fileName+"."+ext;
