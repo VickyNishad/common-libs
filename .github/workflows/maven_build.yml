@@ -1,5 +1,4 @@
 name: Publish Maven Package
-
 on:
   push:
     branches:
