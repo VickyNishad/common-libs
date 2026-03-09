@@ -31,78 +31,76 @@ public class MedicqueGlobalException extends ResponseEntityExceptionHandler {
 	@Override
 	protected ResponseEntity<Object> handleHttpMediaTypeNotSupported(HttpMediaTypeNotSupportedException ex,
 			HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-		return new ResponseEntity<>(ApiResponse.error("API processing failed: " + ex.getMessage()), status);
+		return new ResponseEntity<>(ApiResponse.error(ex.getMessage()), status);
 	}
 
 	@Override
 	protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
 			HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-		return new ResponseEntity<>(ApiResponse.error("API processing failed: " + ex.getMessage()), status);
+		return new ResponseEntity<>(ApiResponse.error(ex.getMessage()), status);
 	}
 
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-		return new ResponseEntity<>(ApiResponse.error("API processing failed: " + ex.getMessage()), status);
+		return new ResponseEntity<>(ApiResponse.error(ex.getMessage()), status);
 	}
 
 	@Override
 	protected ResponseEntity<Object> handleMissingPathVariable(MissingPathVariableException ex, HttpHeaders headers,
 			HttpStatusCode status, WebRequest request) {
-		return new ResponseEntity<>(ApiResponse.error("API processing failed: " + ex.getMessage()), status);
+		return new ResponseEntity<>(ApiResponse.error(ex.getMessage()), status);
 	}
 
 	@Override
 	protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex,
 			HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-		return new ResponseEntity<>(ApiResponse.error("API processing failed: " + ex.getMessage()), status);
+		return new ResponseEntity<>(ApiResponse.error(ex.getMessage()), status);
 	}
 
 	@Override
 	protected ResponseEntity<Object> handleConversionNotSupported(ConversionNotSupportedException ex,
 			HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-		return new ResponseEntity<>(ApiResponse.error("API processing failed: " + ex.getMessage()), status);
+		return new ResponseEntity<>(ApiResponse.error(ex.getMessage()), status);
 	}
 
 	@Override
 	protected ResponseEntity<Object> handleAsyncRequestTimeoutException(AsyncRequestTimeoutException ex,
 			HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-		return new ResponseEntity<>(ApiResponse.error("API processing failed: " + ex.getMessage()), status);
+		return new ResponseEntity<>(ApiResponse.error(ex.getMessage()), status);
 	}
 
 	@ExceptionHandler(InvalidInputException.class)
 	public ResponseEntity<ApiResponse<String>> invalidInputException(InvalidInputException ex) {
-		return new ResponseEntity<ApiResponse<String>>(ApiResponse.error("API processing failed: " + ex.getMessage()), HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiResponse<String>>(ApiResponse.error(ex.getMessage()), HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler(AuthenticationFailedException.class)
 	public ResponseEntity<ApiResponse<String>> authenticationFailedException(AuthenticationFailedException ex) {
-		return new ResponseEntity<ApiResponse<String>>(ApiResponse.error("API processing failed: " + ex.getMessage()), HttpStatus.UNAUTHORIZED);
+		return new ResponseEntity<ApiResponse<String>>(ApiResponse.error(ex.getMessage()), HttpStatus.UNAUTHORIZED);
 	}
 
 	@ExceptionHandler(DataNotFoundException.class)
 	public ResponseEntity<ApiResponse<String>> dataNotFoundException(DataNotFoundException ex) {
-		return new ResponseEntity<ApiResponse<String>>(ApiResponse.error("API processing failed: " + ex.getMessage()), HttpStatus.OK);
+		return new ResponseEntity<ApiResponse<String>>(ApiResponse.error(ex.getMessage()), HttpStatus.OK);
 	}
 
 	@ExceptionHandler(MedicqueException.class)
 	public ResponseEntity<ApiResponse<String>> tException(MedicqueException ex) {
-		return new ResponseEntity<ApiResponse<String>>(ApiResponse.error("API processing failed: " + ex.getMessage()), HttpStatus.OK);
+		return new ResponseEntity<ApiResponse<String>>(ApiResponse.error(ex.getMessage()), HttpStatus.OK);
 	}
 	
 	@ExceptionHandler(DatabaseException.class)
 	public ResponseEntity<ApiResponse<String>> databaseException(DatabaseException ex) {
-		return new ResponseEntity<ApiResponse<String>>(ApiResponse.error("API processing failed: " + ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<ApiResponse<String>>(ApiResponse.error(ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-    // Custom business exceptions
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ApiResponse<String>> handleRuntime(RuntimeException ex) {
 
     	return new ResponseEntity<>(ApiResponse.error(ex.getMessage()), HttpStatus.OK);
     }
 
-    // Generic fallback
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<String>> handleGeneral(Exception ex) {
     	return new ResponseEntity<>(ApiResponse.error(ex.getMessage()), HttpStatus.OK);
